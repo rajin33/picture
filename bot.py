@@ -15,6 +15,20 @@ class User:
 
 
 
+
+
+
+
+
+
+@bot.message_handler(commands=['start1234'])
+def foo(message):
+    text = "hello this is start command"
+    #photo1 = open("botimage.jpg", 'rb')
+    #bot.send_photo(message.chat.id, photo1)
+    bot.send_photo(message.chat.id, "AgACAgUAAxkBAAEihiJkjFGY9Zacx8ATWEbfX4z2bUH20gACvLUxG-UsYFRkvXtV8aY_gQEAAwIAA3gAAy8E","Hello")
+
+
 @bot.message_handler(commands=['start'])
 def start_ex(message):
     """
@@ -25,7 +39,7 @@ def start_ex(message):
         telebot.types.InlineKeyboardButton(text=f'Ethereum Contract Detection',callback_data=f"contract_detection"),
         telebot.types.InlineKeyboardButton(text=f'Sniper',callback_data=f"sniper"),
         )
-    bot.send_message(message.chat.id,f"""Welcome to GuardLab\n\nGuardLab is the best and fastest Detect & snipe Bot.
+    bot.send_photo(message.chat.id,"AgACAgUAAxkBAAEihiJkjFGY9Zacx8ATWEbfX4z2bUH20gACvLUxG-UsYFRkvXtV8aY_gQEAAwIAA3gAAy8E",f"""Welcome to GuardLab\n\nGuardLab is the best and fastest Detect & snipe Bot.
 We pride ourselves on being the most accurate and up-to-date scanner.\n\nCurrently supported chains: Ethereum
 """,parse_mode='HTML',reply_markup=markup)
 
@@ -43,9 +57,9 @@ def test_callback(call):
                 telebot.types.InlineKeyboardButton(text=f'Referral',callback_data=f"snipe444r"),
 
                 )
-        bot.send_message(call.message.chat.id,"Welcome to the Sniper!",parse_mode='HTML',reply_markup=markup)
+        bot.send_photo(call.message.chat.id,"AgACAgUAAxkBAAEihiJkjFGY9Zacx8ATWEbfX4z2bUH20gACvLUxG-UsYFRkvXtV8aY_gQEAAwIAA3gAAy8E","Welcome to the Sniper!",parse_mode='HTML',reply_markup=markup)
     elif call.data == "contract_detection":
-        bot.send_message(call.message.chat.id, "Input the contract address")
+        bot.send_photo(call.message.chat.id,"AgACAgUAAxkBAAEihiJkjFGY9Zacx8ATWEbfX4z2bUH20gACvLUxG-UsYFRkvXtV8aY_gQEAAwIAA3gAAy8E","Input the contract address")
         bot.register_next_step_handler(call.message, process_name_step)
 
 
@@ -63,7 +77,7 @@ def process_name_step(message):
                 telebot.types.InlineKeyboardButton(text=f'Ethereum Contract Detection',callback_data=f"contract_detection"),
                 telebot.types.InlineKeyboardButton(text=f'Sniper',callback_data=f"sniper"),
                 )
-            msg = bot.send_message(chat_id, finaltext,reply_markup=markup)
+            msg = bot.send_photo(chat_id,"AgACAgUAAxkBAAEihiJkjFGY9Zacx8ATWEbfX4z2bUH20gACvLUxG-UsYFRkvXtV8aY_gQEAAwIAA3gAAy8E",finaltext,reply_markup=markup)
         else:
             bot.send_message(chat_id, f"Your address is wrong. /start again")
     except Exception as e:
